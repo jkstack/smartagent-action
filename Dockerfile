@@ -2,8 +2,6 @@ FROM debian:stable-slim
 
 ARG GO_VERSION=1.18.2
 
-ADD entrypoint.sh /entrypoint.sh
-
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y curl git make fakeroot wixl nsis && \
     apt-get install -y busybox unzip && \
@@ -18,4 +16,4 @@ RUN apt-get update && apt-get upgrade -y && \
 
 ENV PATH=$PATH:/usr/local/go/bin:/usr/local/go10/bin
 
-ENTRYPOINT /entrypoint.sh
+ENTRYPOINT make
