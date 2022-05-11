@@ -6,6 +6,7 @@ ADD entrypoint.sh /entrypoint.sh
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y curl git make fakeroot wixl nsis && \
+    apt-get install -y busybox unzip && \
     curl -L https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz|tar -xz -C /usr/local && \
     mkdir -p /usr/local/go10 && \
     curl -L https://dl.google.com/go/go1.10.8.linux-amd64.tar.gz|tar -xz -C /usr/local/go10 --strip-components=1 --exclude=gocache && \
