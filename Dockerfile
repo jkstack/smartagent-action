@@ -2,7 +2,7 @@ FROM debian:stable-slim
 
 ARG GO_VERSION=1.18.2
 
-ADD entrypoint /entrypoint
+ADD entrypoint.sh /entrypoint.sh
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y curl git make fakeroot wixl nsis && \
