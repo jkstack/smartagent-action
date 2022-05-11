@@ -1,0 +1,4 @@
+name: smartagent build with docker env
+runs:
+  using: docker
+  image: Dockerfile
