@@ -3,7 +3,7 @@ FROM debian:stable-slim
 ARG GO_VERSION=1.18.2
 
 RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y curl git make fakeroot wixl nsis && \
+    apt-get install -y curl git make fakeroot wixl nsis dos2unix && \
     apt-get install -y busybox unzip && \
     curl -L https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz|tar -xz -C /usr/local && \
     mkdir -p /usr/local/go10 && \
