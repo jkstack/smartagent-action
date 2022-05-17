@@ -1,8 +1,11 @@
 FROM debian:stable-slim
 
 ARG GO_VERSION=1.18.2
+ARG APT_MIRROR=mirrors.ustc.edu.cn
 
-RUN apt-get update && apt-get upgrade -y && \
+RUN sed -i "s|deb.debian.org|$APT_MIRROR|g" /etc/apt/sources.list && \
+    sed -i "s|security.debian.org|$APT_MIRROR|g" /etc/apt/sources.list && \
+    apt-get update && apt-get upgrade -y && \
     apt-get install -y curl git make fakeroot wixl nsis dos2unix && \
     apt-get install -y busybox unzip && \
     curl -L https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz|tar -xz -C /usr/local && \
