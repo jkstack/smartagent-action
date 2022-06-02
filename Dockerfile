@@ -1,6 +1,6 @@
 FROM debian:stable-slim
 
-ARG GO_VERSION=1.18.2
+ARG GO_VERSION=1.18.3
 ARG APT_MIRROR=mirrors.ustc.edu.cn
 
 RUN sed -i "s|deb.debian.org|$APT_MIRROR|g" /etc/apt/sources.list && \
