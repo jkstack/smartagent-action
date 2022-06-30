@@ -1,7 +1,6 @@
 FROM debian:stable-slim
 
 ARG GO_VERSION=1.18.3
-ARG APT_MIRROR=mirrors.ustc.edu.cn
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y curl git make fakeroot wixl nsis dos2unix && \
