@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '20 0 * * *'
   push:
-    branches: [ master ]
+    tags: [ '*' ]
 
 jobs:
   release:
@@ -19,8 +19,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
       - uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          tags: lwch/smartagent-build:latest
+          tags: lwch/smartagent-build:${{ steps.get_version.outputs.VERSION }}
+          build-args: |
+            GO_VERSION=${{ steps.get_version.outputs.VERSION }}
