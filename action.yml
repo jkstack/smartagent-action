@@ -1,4 +1,4 @@
 name: smartagent build with docker env
 runs:
   using: docker
-  image: docker://lwch/smartagent-build:1.19.3
+  image: docker://lwch/smartagent-build:1.19.4

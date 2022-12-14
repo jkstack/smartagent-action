@@ -1,6 +1,6 @@
 FROM debian:stable-slim
 
-ARG GO_VERSION=1.19.3
+ARG GO_VERSION=1.19.4
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y curl git make fakeroot wixl nsis dos2unix && \
@@ -13,7 +13,8 @@ RUN apt-get update && apt-get upgrade -y && \
     mv /usr/local/go10/bin/gofmt /usr/local/go10/bin/gofmt10 && \
     curl -L https://nsis.sourceforge.io/mediawiki/images/e/ef/NSIS_Simple_Service_Plugin_Unicode_1.30.zip | busybox unzip -d /usr/share/nsis/Plugins/x86-unicode - SimpleSC.dll && \
     curl -L https://nsis.sourceforge.io/mediawiki/images/2/24/NSIS_Simple_Service_Plugin_ANSI_1.30.zip | busybox unzip -d /usr/share/nsis/Plugins/x86-ansi - SimpleSC.dll && \
-    GOPROXY=https://goproxy.cn,direct /usr/local/go/bin/go install github.com/josephspurrier/goversioninfo/cmd/goversioninfo@latest
+    /usr/local/go/bin/go install github.com/josephspurrier/goversioninfo/cmd/goversioninfo@latest && \
+    /usr/local/go/bin/go install github.com/swaggo/swag/cmd/swag@latest
 
 ENV PATH=$PATH:/usr/local/go/bin:/usr/local/go10/bin:/root/go/bin
 
