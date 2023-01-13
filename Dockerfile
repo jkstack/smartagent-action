@@ -1,6 +1,6 @@
 FROM debian:stable-slim
 
-ARG GO_VERSION=1.19.4
+ARG GO_VERSION=1.19.5
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y curl git make fakeroot wixl nsis dos2unix && \
