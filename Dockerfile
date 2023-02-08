@@ -14,7 +14,8 @@ RUN apt-get update && apt-get upgrade -y && \
     curl -L https://nsis.sourceforge.io/mediawiki/images/e/ef/NSIS_Simple_Service_Plugin_Unicode_1.30.zip | busybox unzip -d /usr/share/nsis/Plugins/x86-unicode - SimpleSC.dll && \
     curl -L https://nsis.sourceforge.io/mediawiki/images/2/24/NSIS_Simple_Service_Plugin_ANSI_1.30.zip | busybox unzip -d /usr/share/nsis/Plugins/x86-ansi - SimpleSC.dll && \
     /usr/local/go/bin/go install github.com/josephspurrier/goversioninfo/cmd/goversioninfo@latest && \
-    /usr/local/go/bin/go install github.com/swaggo/swag/cmd/swag@latest
+    /usr/local/go/bin/go install github.com/swaggo/swag/cmd/swag@latest && \
+    git config --global --add safe.directory /github/workspace
 
 ENV PATH=$PATH:/usr/local/go/bin:/usr/local/go10/bin:/root/go/bin
 
