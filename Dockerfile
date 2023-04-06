@@ -1,6 +1,6 @@
 FROM debian:stable-slim
 
-ARG GO_VERSION=1.20.2
+ARG GO_VERSION=1.20.3
 ARG TARGETPLATFORM
 
 RUN apt-get update && apt-get upgrade -y && \
