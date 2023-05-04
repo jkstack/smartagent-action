@@ -24,6 +24,7 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           context: .
+          pull: true
           push: true
           tags: lwch/smartagent-build:${{ steps.get_version.outputs.VERSION }}
           build-args: |
