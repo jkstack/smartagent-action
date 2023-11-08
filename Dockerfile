@@ -1,6 +1,6 @@
 FROM debian:stable-slim
 
-ARG GO_VERSION=1.20.10
+ARG GO_VERSION=1.20.11
 ARG TARGETPLATFORM
 
 RUN apt-get update && apt-get upgrade -y && \
